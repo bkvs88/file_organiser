@@ -1,4 +1,31 @@
-# File Organiser — Logging Guide
+# File Organiser
+
+Organises a folder's loose files into category sub-folders by file type.
+`detection.py` classifies files, `movement.py` moves them, and **`main.py`**
+is the entry point that runs them over a whole folder.
+
+```
+usage: file_organiser [source] [target_root] [--overwrite] [--log-file PATH]
+
+python main.py              # organise "." into "./organized"
+python main.py ~/Downloads ~/Desktop/cleaned
+python main.py . out --overwrite --log-file /tmp/org.log
+```
+
+Example output on the console (also mirrored to the log file):
+
+```
+Done: 2 moved, 1 unsupported, 0 duplicates, 0 failed.
+```
+
+- Unsupported, duplicate and failed files are **skipped and logged**, never
+  crash the run.
+- Re-run the tests with `pytest`, or read **`test_file_organiser.py`** to see
+  every behaviour documented.
+
+---
+
+# Logging Guide
 
 This document explains **how logging works** in this project, the **options**
 available for customising it, and every **variable** you can use inside
